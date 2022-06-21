@@ -57,12 +57,25 @@
                }
                
             },
+            clearCart(){
+            this.smallQty = 0;
+            this.smallTotal = 0;
+            this.mediumQty = 0;
+            this.mediumTotal = 0.00;
+            this.largeQty = 0;
+            this.largeTotal = 0
+            },
             makePayment() {
-                if (this.paymentAmount >= This.cartTotal()){
-                    this.paymentMessage ='Payment Succesful!'
-                   }
+                
                if (!this.paymentAmount){
                 this.paymentMessage ='No Amount entered!'
+               }
+
+               if (this.paymentAmount >= this.cartTotal()){
+                this.paymentMessage ='Payment Succesful!'
+                this.clearCart();
+               } else {
+                this.paymentMessage ='Payment Failed!'
                }
                
             },
@@ -161,7 +174,7 @@
                                             <img src="delivery.gif" width="20" alt="">
                                             Pay Now</button>
                                     </div>
-                                    <div x-text="paymentAmount"></div>
+                                    
                                     
                                 </div>
                                 

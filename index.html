@@ -58,12 +58,13 @@
                
             },
             makePayment() {
+                if (this.paymentAmount >= This.cartTotal()){
+                    this.paymentMessage ='Payment Succesful!'
+                   }
                if (!this.paymentAmount){
                 this.paymentMessage ='No Amount entered!'
                }
-               if (this.paymentAmount >= This.cartTotal()){
-                this.paymentMessage ='Payment Succesful!'
-               }
+               
             },
             cartTotal(){
                 return this.smallTotal + this.mediumTotal + this.largeTotal;
@@ -73,12 +74,12 @@
             }
         
         }">
-        <div class="header box">
-            <div class="f3">
+        <div class="header">
+            <div class="f3 header" x-show="!showCart">
                 <h1>People disappoint, but pizza never does.</h1>
             </div>
-            <div class="f1 box ">
-                <button x-on:click ="showCart= true" >
+            <div class="f1 header  ">
+                <button x-on:click ="showCart= true" x-show="!showCart" >
                     <img src="takeaway.gif" width="30" alt="">Cart
                     <strong x-show = "totalQty() > 0">
                    <span x-text="totalQty()">
@@ -87,7 +88,7 @@
                 </button>
             </div>
 
-            <button x-on:click="showCart = false"><img src="takeaway.gif" width="30" alt="">Close Cart</button>
+           
 
             <div class="cart-box">
                 <div class="cart" x-show="showCart">
@@ -156,7 +157,7 @@
                                     <div>
                                         <label for="">Payment Amount</label>
                                         <input class="input" type="number" placeholder="Payment Amount" x-model="paymentAmount">
-                                        <button  x-on:click= "makePayment"  class="btn">
+                                        <button  x-on:click= "makePayment()"  class="btn">
                                             <img src="delivery.gif" width="20" alt="">
                                             Pay Now</button>
                                     </div>

@@ -56,9 +56,9 @@
     /* .container{
         display: flex;
     } */
-    /* .header{
+    .header{
     display: flex;
-   }  */
+   } 
 }
 table, th, td{
     /* border: 1px solid #1982c4; */
@@ -73,7 +73,7 @@ table, th, td{
     
 }
 table, th, td{
-    width: 100%;
+    width: 70%;
     
  }
 
@@ -85,7 +85,7 @@ table, th, td{
 .header{
     background-color: #1982c4;
     position: left;
-    border: solid black;
+    
     padding: 1em;
     margin: 1em;
     border-radius: 1em;

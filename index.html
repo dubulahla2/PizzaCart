@@ -63,7 +63,7 @@
             this.mediumQty = 0;
             this.mediumTotal = 0.00;
             this.largeQty = 0;
-            this.largeTotal = 0
+            this.largeTotal = 0,
             },
             makePayment() {
                 
@@ -73,7 +73,12 @@
 
                if (this.paymentAmount >= this.cartTotal()){
                 this.paymentMessage ='Payment Succesful!'
-                this.clearCart();
+                
+                setTimeout(() => {
+                this.clearCart()
+                this.payNow = false;
+               },3000);
+            
                } else {
                 this.paymentMessage ='Payment Failed!'
                }

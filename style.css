@@ -73,7 +73,7 @@ table, th, td{
     
 }
 table, th, td{
-    width: 70%;
+    width: 50%;
     
  }
 
@@ -93,5 +93,6 @@ table, th, td{
 /* .box{
     flex:1;
 } */
+
 
 

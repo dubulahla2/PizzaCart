@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     <div class="container"
         x-data="{showCart:false
             ,smallQty:0,
@@ -95,6 +96,7 @@
         <div class="header">
             <div class="f3 header" x-show="!showCart">
                 <h1>People disappoint, but pizza never does.</h1>
+               <div><small>Ispired by </small><img src="pizzaHut.png" width="100" alt=""></div> 
             </div>
             <div class="f1 header  ">
                 <button x-on:click ="showCart= true" x-show="!showCart" >
@@ -157,8 +159,8 @@
                             <td>
                                R<span  x-text="largeTotal.toFixed(2)"></span>
                                 </td>
-                        </tr>
-                        <tr>
+                        </tr >
+                        <tr x-show =" cartTotal().toFixed(2)>0">
                             <td colspan="2">Total</td>
                             <td>
 
@@ -174,7 +176,7 @@
                                     <div class="message"  x-text = "paymentMessage"></div>
                                     <div>
                                         <label for="">Payment Amount</label>
-                                        <input class="input" type="number" placeholder="Payment Amount" x-model="paymentAmount">
+                                        <input class="input" type="number" placeholder="Payment Amount" x-model="paymentAmount" width=" 50">
                                         <button  x-on:click= "makePayment()"  class="btn">
                                             <img src="delivery.gif" width="20" alt="">
                                             Pay Now</button>

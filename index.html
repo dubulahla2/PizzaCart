@@ -67,11 +67,11 @@
             },
             makePayment() {
                 
-               if (!this.paymentAmount){
+               if (!this.paymentAmount ){
                 this.paymentMessage ='No Amount entered!'
                }
 
-               if (this.paymentAmount >= this.cartTotal()){
+              else if (this.paymentAmount >= this.cartTotal()){
                 this.paymentMessage ='Payment Succesful!'
                 
                 setTimeout(() => {

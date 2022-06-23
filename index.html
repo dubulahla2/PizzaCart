@@ -13,8 +13,7 @@
 
 <body>
 
-    <div class="container"
-        x-data="{showCart:false
+    <div class="container" x-data="{showCart:false
             ,smallQty:0,
             smallTotal:0,
             mediumQty: 0,
@@ -93,110 +92,119 @@
             }
         
         }">
-        <div class="header">
-            <div class="f3 header" x-show="!showCart">
-                <h1>People disappoint, but pizza never does.</h1>
-               <div><small>Inspired by </small><img src="pizzaHut.png" width="100" alt=""></div> 
+           <div class="header">
+               <div class="f3 header" x-show="!showCart">
+                  <div>
+                  <img src="HlanananiPizza.jpg" width="75" alt="">
+                  </div>
+                   <h1>    People disappoint, but pizza never does.</h1>
+
+                   <div><small>Inspired by </small><img src="pizzaHut.png" width="150" alt=""></div>
+               </div>
+             <div class="f1 header  ">
+                 <button x-on:click="showCart= true" x-show="!showCart">
+                    <img src="takeaway.gif" width="20" alt="">Cart
+                    <strong x-show="totalQty() > 0">
+                        <span x-text="totalQty()">
+                        </span> Pizzas
+                    </strong>
+                    </button>
+               </div>
+
             </div>
-            <div class="f1 header  ">
-                <button x-on:click ="showCart= true" x-show="!showCart" >
-                    <img src="takeaway.gif" width="30" alt="">Cart
-                    <strong x-show = "totalQty() > 0">
-                   <span x-text="totalQty()">
-                    </span> Pizzas 
-                   </strong>
-                </button>
-            </div>
 
-           
+        <div class="cart-box">
+            <div class="cart" x-show="showCart">
+                <div>
+                      <a href="">Close</a>
+                </div>
+                <div class= "">
+				<button x-on:click="showCart=false"><img src="takeaway.gif" width="30" alt="">Close Cart</button>	
+				</div>
+                
 
-            <div class="cart-box">
-                <div class="cart" x-show="showCart">
-
-
-                    <button x-on:click = "showCart=false"><img src="takeaway.gif" width="30" alt="">Close Cart</button>
-
-                    <!-- <div class="">
+                <!-- <div class="">
                        <h2>Cart<img src="takeaway.gif" width="30" alt=""></h2>
                      </div> -->
-                
-                    <table>
-                        <tr x-show = "smallQty > 0"x-show = "smallQty > 0">
-                            <td >
-                                Small Pizza & 350ml Coca Cola or Water
-                            </td>
-                            <td>
-                                <span x-text="smallQty"></span>
-                                <button x-on:click="buySmall()" x-show = "smallQty > 0">+</button>
-                                <button x-on:click="clearSmall()" x-show = "smallQty > 0">-</button>
-                            </td>
-                            <td>
+
+                <table>
+                    <tr x-show="smallQty > 0" x-show="smallQty > 0">
+                        <td>
+                            Small Pizza & 350ml Coca Cola or Water
+                        </td>
+                        <td>
+                            <span x-text="smallQty"></span>
+                            <button x-on:click="buySmall()" x-show="smallQty > 0">+</button>
+                            <button x-on:click="clearSmall()" x-show="smallQty > 0">-</button>
+                        </td>
+                        <td>
                             R<span x-text="smallTotal.toFixed(2)"></span>
                         </td>
-                        </tr>
-                        <tr  x-show = "mediumQty > 0">
-                            <td>
-                                Medium Pizza & 2L Coca Cola
-                            </td>
-                            <td>
-                                <span x-text="mediumQty"></span>
-                                <button x-on:click="buyMedium()" x-show = "mediumQty > 0">+</button>
-                                <button x-on:click="clearMedium()" x-show = "mediumQty > 0">-</button>
-                            </td>
-                            <td>
-                           R<span x-text="mediumTotal.toFixed(2)"></span>
+                    </tr>
+                    <tr x-show="mediumQty > 0">
+                        <td>
+                            Medium Pizza & 2L Coca Cola
                         </td>
-                        </tr>
-                        <tr x-show = "largeQty > 0">
-                            <td>
-                                Large Pizza & 2L Coca Cola
-                            </td>
-                            <td>
-                                <span x-text="largeQty"></span>
-                                <button x-on:click ="buyLarge()" x-show = "largeQty > 0">+</button>
-                                <button x-on:click ="clearLarge()" x-show = "largeQty > 0">-</button>
-                            </td>
-                            <td>
-                               R<span  x-text="largeTotal.toFixed(2)"></span>
-                                </td>
-                        </tr >
-                        <tr x-show =" cartTotal().toFixed(2)>0">
-                            <td colspan="2">Total</td>
-                            <td>
+                        <td>
+                            <span x-text="mediumQty"></span>
+                            <button x-on:click="buyMedium()" x-show="mediumQty > 0">+</button>
+                            <button x-on:click="clearMedium()" x-show="mediumQty > 0">-</button>
+                        </td>
+                        <td>
+                            R<span x-text="mediumTotal.toFixed(2)"></span>
+                        </td>
+                    </tr>
+                    <tr x-show="largeQty > 0">
+                        <td>
+                            Large Pizza & 2L Coca Cola
+                        </td>
+                        <td>
+                            <span x-text="largeQty"></span>
+                            <button x-on:click="buyLarge()" x-show="largeQty > 0">+</button>
+                            <button x-on:click="clearLarge()" x-show="largeQty > 0">-</button>
+                        </td>
+                        <td>
+                            R<span x-text="largeTotal.toFixed(2)"></span>
+                        </td>
+                    </tr>
+                    <tr x-show=" cartTotal().toFixed(2)>0">
+                        <td colspan="2">Total</td>
+                        <td>
 
                             R<span x-text="cartTotal().toFixed(2)">
 
                             </span>
 
-                            </td>
-                        </tr >
-                        <tr>
-                            <td colspan="2">
-                                <div x-show = "payNow">
-                                    <div class="message"  x-text = "paymentMessage"></div>
-                                    <div>
-                                        <label for="">Payment Amount</label>
-                                        <input class="input" type="number" placeholder="Payment Amount" x-model="paymentAmount" width=" 50">
-                                        <button  x-on:click= "makePayment()"  class="btn">
-                                            <img src="delivery.gif" width="20" alt="">
-                                            Pay Now</button>
-                                    </div>
-                                    
-                                    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div x-show="payNow">
+                                <div class="message" x-text="paymentMessage"></div>
+                                <div>
+                                    <label for="">Payment Amount</label>
+                                    <input class="input" type="number" placeholder="Payment Amount"
+                                        x-model="paymentAmount" width=" 50">
+                                    <button x-on:click="makePayment()" class="btn">
+                                        <img src="delivery.gif" width="20" alt="">
+                                        Pay Now</button>
                                 </div>
-                                
-                            </td>
-                            <td>
-                                <button x-show = "!payNow" x-on:click ="payNow =true" x-show class="btn">
-                                    <img src="delivery.gif" width="20" alt="">
-                                    Pay</button>
-                            </td>
-                        </tr>
-                    </table> 
-                </div>
 
+
+                            </div>
+
+                        </td>
+                        <td>
+                            <button x-show="!payNow" x-on:click="payNow =true" x-show class="btn">
+                                <img src="delivery.gif" width="20" alt="">
+                                Pay</button>
+                        </td>
+                    </tr>
+                </table>
             </div>
+
         </div>
+
 
 
 
@@ -247,7 +255,7 @@
                 <div>
                     <h3>R129.00</h3>
                 </div>
-                <button class="buy btn" x-on:click ="buyLarge()">
+                <button class="buy btn" x-on:click="buyLarge()">
                     <img src="takeaway.gif" width="20" alt="">Buy</button>
                 <div>Large margeritha pizza with 3 toppings max. 3 meat toppings max. 3 or less other toppings.</div>
             </div>
@@ -258,7 +266,7 @@
 
         </div>
     </div>
-         <div class="contact_Us">
+    <div class="contact_Us">
         <h2>Contact details</h2>
         <div>Contact us at: 011-541-1000</div>
         <div>twitter</div>

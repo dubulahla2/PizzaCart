@@ -34,6 +34,7 @@
     border: solid black;
     padding: 1em;
     margin: 1em;
+    border-radius: 1em;
 }
 
 /* .title {
@@ -101,8 +102,8 @@ td {
     padding: 1em;
     background-color: dodgerblue;
     
-    border-radius: 0.5em;
-    
+    border-radius: 1em;
+  
 }
 /* .box{
     flex:1;

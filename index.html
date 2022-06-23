@@ -96,14 +96,14 @@
         <div class="header">
             <div class="f3 header" x-show="!showCart">
                 <h1>People disappoint, but pizza never does.</h1>
-               <div><small>Ispired by </small><img src="pizzaHut.png" width="100" alt=""></div> 
+               <div><small>Inspired by </small><img src="pizzaHut.png" width="100" alt=""></div> 
             </div>
             <div class="f1 header  ">
                 <button x-on:click ="showCart= true" x-show="!showCart" >
                     <img src="takeaway.gif" width="30" alt="">Cart
                     <strong x-show = "totalQty() > 0">
                    <span x-text="totalQty()">
-                    </span> Pizzas In Cart
+                    </span> Pizzas 
                    </strong>
                 </button>
             </div>

@@ -13,20 +13,20 @@
 
 }
 
-.medium_Pizza {
-    /* background-color: #FF595E; */
+/* .medium_Pizza {
+    background-color: #FF595E;
 
 }
 
 .large_Pizza {
-    /* background-color: blueviolet; */
+    background-color: blueviolet;
 
 }
 
 .small_Pizza {
-    /* background-color: yellowgreen; */
+    background-color: yellowgreen;
 
-}
+} */
 
 
 .contact_Us {
@@ -179,4 +179,7 @@ html {
     100% {
       transform:translateX(25%);
     }
+  }
+  body {
+    font-family: arial, sans-serif;
   }

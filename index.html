@@ -67,7 +67,8 @@
             this.mediumQty = 0;
             this.mediumTotal = 0.00;
             this.largeQty = 0;
-            this.largeTotal = 0
+            this.largeTotal = 0;
+
             },
             makePayment() {
                 
@@ -81,6 +82,7 @@
                 setTimeout(() => {
                 this.clearCart()
                 this.payNow = false;
+                this.showCart = false
                },3000);
             
                } else {
@@ -103,8 +105,8 @@
 
                    <div><small>Inspired by </small><img src="pizzaHut.png" width="150" alt=""></div>
                </div>
-             <div class="f1 header  ">
-                 <button x-on:click="showCart= true" x-show="!showCart">
+             <div class="f1 header" x-show ="totalQty() > 0" >
+                 <button x-on:click="showCart= true" x-show="!showCart"  >
                     <img src="takeaway.gif" width="20" alt="">Cart
                     <strong x-show="totalQty() > 0">
                         <span x-text="totalQty()">
@@ -130,7 +132,7 @@
                      </div> -->
 
                 <table>
-                    <tr x-show="smallQty > 0" x-show="smallQty > 0">
+                    <tr x-show="smallQty > 0" >
                         <td>
                             Small Pizza & 350ml Coca Cola or Water
                         </td>
@@ -196,7 +198,7 @@
                             </div>
 
                         </td>
-                        <td>
+                        <td x-show= "cartTotal().toFixed(2) > 0" >
                             <button x-show="!payNow" x-on:click="payNow =true" x-show class="btn">
                                 <img src="delivery.gif" width="20" alt="">
                                 Pay</button>

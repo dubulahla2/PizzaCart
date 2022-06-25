@@ -198,7 +198,7 @@
                             </div>
 
                         </td>
-                        <td x-show= "cartTotal().toFixed(2) > 0" >
+                        <td x-show ="totalQty() > 0" >
                             <button x-show="!payNow" x-on:click="payNow =true" x-show class="btn">
                                 <img src="delivery.gif" width="20" alt="">
                                 Pay</button>
